@@ -1,0 +1,51 @@
+{
+    "type": "origins:multiple",
+    "sunweak": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:weakness",
+                "duration": 40,
+                "amplifier": 0,
+                "show_particles": false,
+                "show_icon": true,
+                "is_ambient": true
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:exposed_to_sun"
+        }
+    },
+	"dark_strong": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:strength",
+				"duration": 40,
+				"amplifier": 0,
+				"show_particles": false,
+				"show_icon": true,
+				"is_ambient": true
+			}
+		},
+		"interval": 20,
+		"condition": {
+			"type": "origins:exposed_to_sun",
+			"inverted": true
+		}
+	},
+    "nightvision": {
+        "type": "origins:night_vision",
+        "strength": 0.4,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water",
+            "inverted": true
+        }
+    },
+    "name": "Nocturnal",
+    "description": "Your kind isn't used to sunlight.\n• You have Nightvision.\n• Suffer weakness under sunlight."
+}

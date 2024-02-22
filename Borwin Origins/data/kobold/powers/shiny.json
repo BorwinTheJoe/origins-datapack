@@ -1,0 +1,389 @@
+{
+	"type": "origins:multiple",
+	"name": "SHINY!",
+	"description": "You LOVE shiny things!\nAnd Not only because you like their looks! They TASTE amazing!\nGold, Emerald, Diamonds - you can eat it all, filling your shiny meter!\nDepending on how full it is, you can have up to 15 hearts of health!",
+	"shiny_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 810,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 22
+		}
+	},
+	"gold_nugget_eat": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:gold_nugget"
+			}
+		},
+		"food_component": {
+			"hunger": 2,
+			"saturation": 2,
+			"meat": false,
+			"always_edible": true,
+			"snack": true
+		},
+		"use_action": "eat",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "kobold:shiny_shiny_resource",
+			"change": 3
+		}
+	},
+	"gold_ingot_eat": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:gold_ingot"
+			}
+		},
+		"food_component": {
+			"hunger": 4,
+			"saturation": 4,
+			"meat": false,
+			"always_edible": true
+		},
+		"use_action": "eat",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "kobold:shiny_shiny_resource",
+			"change": 27
+		}
+	},
+	"gold_block_eat": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:gold_block"
+			}
+		},
+		"food_component": {
+			"hunger": 8,
+			"saturation": 12,
+			"meat": false,
+			"always_edible": true
+		},
+		"use_action": "eat",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "kobold:shiny_shiny_resource",
+			"change": 81
+		}
+	},
+	"emerald_eat": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:emerald"
+			}
+		},
+		"food_component": {
+			"hunger": 12,
+			"saturation": 16,
+			"meat": false,
+			"always_edible": true
+		},
+		"use_action": "eat",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "kobold:shiny_shiny_resource",
+			"change": 162
+		}
+	},
+	"diamond_eat": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:diamond"
+			}
+		},
+		"food_component": {
+			"hunger": 16,
+			"saturation": 20,
+			"meat": false,
+			"always_edible": true
+		},
+		"use_action": "eat",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "kobold:shiny_shiny_resource",
+			"change": 243
+		}
+	},
+	"shiny_reset": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"condition": {
+			"type": "origins:health",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "kobold:shiny_shiny_resource",
+			"change": 0,
+			"operation": "set"
+		}
+	},
+	"1_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 81
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 162
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 2
+		}
+	},
+	"2_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 162
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 243
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 4
+		}
+	},
+	"3_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 243
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 324
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 6
+		}
+	},
+	"4_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 324
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 405
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 8
+		}
+	},
+	"5_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 405
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 486
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 10
+		}
+	},
+	"6_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 486
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 567
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 12
+		}
+	},
+	"7_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 567
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 648
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 14
+		}
+	},
+	"8_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 648
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 729
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 16
+		}
+	},
+	"9_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": ">=",
+					"compare_to": 729
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "<",
+					"compare_to": 810
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 18
+		}
+	},
+	"10_heart": {
+		"type": "origins:conditioned_attribute",
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_shiny_resource",
+					"comparison": "==",
+					"compare_to": 810
+				}
+			]
+		},
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 20
+		}
+	}
+}

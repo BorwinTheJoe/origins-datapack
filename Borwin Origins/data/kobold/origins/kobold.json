@@ -1,0 +1,14 @@
+{
+	"powers": [
+		"kobold:yipper",
+		"kobold:paranoia",
+		"kobold:shiny",
+		"kobold:dragun",
+		"kobold:rocket"
+	],
+	"icon": "minecraft:gold_nugget",
+	"order": 38,
+	"impact": 2,
+	"name": "Kobold",
+	"description": "The short little scaly critters with a stomach for precious treats, who want to be dragons with a stomach for precious treats"
+}

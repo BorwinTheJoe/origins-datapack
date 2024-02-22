@@ -1,0 +1,14 @@
+{
+	"powers": [
+		"moth:moth_short",
+		"moth:moth_delicate",
+		"moth:moth_climb",
+		"moth:moth_nocturnal",
+		"origins:elytra"
+	],
+	"icon": "minecraft:white_wool",
+	"order": 35,
+	"impact": 2,
+	"name": "Mothian",
+	"description": "The ferocious legend of Mothman has it's beginnings - in things far less intimidating."
+}

@@ -1,0 +1,11 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "damage increase",
+        "attribute": "minecraft:generic.attack_damage",
+        "value": 3,
+        "operation": "addition"
+    },
+	"name": "Muscular",
+	"description": "Your size and Ancestry make you stronger than normal. You deal one and a half heart of damage more."
+}

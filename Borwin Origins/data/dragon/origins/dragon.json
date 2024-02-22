@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"dragon:winged",
+		"dragon:glutton",
+		"dragon:mount"
+	],
+	"icon": "minecraft:dragon_egg",
+	"order": 39,
+	"impact": 2,
+	"name": "Dragon",
+	"description": "Not all dragons are incapable of speech and agressive in nature. Like You."
+}

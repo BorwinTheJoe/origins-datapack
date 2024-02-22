@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "origins": [
+    "sheep:sheepian",
+	"moth:mothman",
+	"mino:minotaur",
+	"kobold:kobold",
+	"goat:goatian",
+	"dragon:dragon"	
+  ]
+}

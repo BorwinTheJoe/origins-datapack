@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"mino:larger_size",
+		"mino:more_health",
+		"mino:more_damage",
+		"mino:berserker",
+		"mino:no_bow",
+		"mino:more_milk"
+	],
+	"icon": "minecraft:cow_spawn_egg",
+	"order": 34,
+	"impact": 2,
+	"name": "Minotaur",
+	"description": "The Cow-Person"
+}

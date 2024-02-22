@@ -1,0 +1,11 @@
+{
+	"function": "minecraft:set_lore",
+	"entity": "this",
+	"lore": [
+		{
+			"text": "This Cow milk is Nutritious and oddly Thick!",
+			"color": "light_purple",
+			"italic": false
+		}
+	]
+}

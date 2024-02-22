@@ -1,0 +1,213 @@
+{
+    "type": "origins:multiple",
+    "name": "Bold' Rocket!",
+    "description": "Your bold kobold mind gives you brilliant ideas on how to use firework rockets Better!\nIt doesn't make them safe though - whether to you or anyone near wherever you land! \nJust grab a rocket in hand and See where it gets you!",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+		"hud_render": {
+			"should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": "2",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+		},
+		"min_action": {
+			"type": "origins:execute_command",
+			"command": "stopsound @s player minecraft:item.elytra.flying"
+		}
+    },
+    "rocketeering": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+	"rocket_reset": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"condition": {
+			"type": "origins:health",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions":[
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_rocketeering",
+					"change": 0,
+					"operation": "set"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_duration",
+					"change": 0,
+					"operation": "set"
+				}
+			]
+		}
+	},
+	"flight": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_duration",
+			"comparison": ">",
+			"compare_to": 0
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_duration",
+					"change": -2
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": 0.5,
+					"y": 0.1,
+					"space": "local"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": {
+						"type": "minecraft:firework"
+					},
+					"count": 8
+				}
+			]
+		}
+	},
+	"landing": {
+		"type": "origins:action_on_land",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "*:*_rocketeering",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_duration",
+					"comparison": "<",
+					"compare_to": 90
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_duration",
+					"change": 0,
+					"operation": "set"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_rocketeering",
+					"change": 0,
+					"operation": "set"
+				},
+				{
+					"type": "origins:explode",
+					"power": 3,
+					"destruction_type": "none",
+					"damage_self": false
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "entity.firework_rocket.large_blast"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "entity.firework_rocket.twinkle"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "stopsound @s player minecraft:item.elytra.flying"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": {
+						"type": "minecraft:explosion"
+					},
+					"count": 6,
+					"speed": 1,
+					"spread": {
+						"x": 1,
+						"y": 0.25,
+						"z": 1
+					},
+					"offset_y": -1
+				}
+			]
+		}
+		
+	},
+    "trigger": {
+        "type": "origins:active_self",
+        "cooldown": 20,
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:firework_rocket"
+                }
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_rocketeering",
+                    "change": 1,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_duration",
+                    "change": 100,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.firework_rocket.launch"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "stopsound @s player minecraft:item.elytra.flying"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.elytra.flying player @s"
+				}
+            ]
+        }
+    }
+}

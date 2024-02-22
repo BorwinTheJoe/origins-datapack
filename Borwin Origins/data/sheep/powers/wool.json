@@ -1,0 +1,86 @@
+{
+    "type": "origins:multiple",
+    "name": "Wooly",
+    "description": "Your fluffy wool affords you certain benefits.\n• You have 20% knockback reduction!\n• You have 2 extra Armor Toughness\n• Cacti and bushes no longer hurt!\n• You no longer receive Freeze Damage!\n-BUT!-\n• You swim slower in water (Paddle Paddle!)\n• You burn for longer.",
+    "resistance": {
+        "type": "origins:attribute",
+        "modifiers": [
+            {
+                "name": "Knockback resistance increase",
+                "attribute": "minecraft:generic.knockback_resistance",
+                "value": 0.2,
+                "operation": "addition"
+            },
+            {
+                "name": "Armor Toughness increase",
+                "attribute": "minecraft:generic.armor_toughness",
+                "value": 2,
+                "operation": "addition"
+            }
+        ]
+    },
+    "flammable": {
+        "type": "origins:self_action_when_hit",
+        "cooldown": 5,
+        "entity_action": { 
+			"type": "origins:set_on_fire",
+			"duration": 20     
+        },
+        "damage_condition": {
+            "type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:name",
+					"name": "lava"
+				},
+				{
+					"type": "origins:name",
+					"name": "inFire"
+				},
+				{
+					"type": "origins:name",
+					"name": "fireball"
+				}
+			]
+        }
+    },
+    "burdened": {
+        "type": "origins:modify_swim_speed",
+        "modifier": {
+            "operation": "addition",
+            "value": -0.005
+        }
+    },
+	"baah": {
+		"type": "origins:self_action_when_hit",
+		"entity_action": {
+			"type": "origins:play_sound",
+			"sound": "minecraft:entity.sheep.hurt",
+			"volume": 1
+		},
+		"cooldown": "1"
+	},
+	"plant_safe": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:name",
+					"name": "cactus"
+				},
+				{
+					"type": "origins:name",
+					"name": "sweetBerryBush"
+				}
+			]
+		}
+	},
+	"cold_safe": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "freeze"
+		}
+	}
+}

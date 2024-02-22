@@ -1,0 +1,30 @@
+{
+	"type": "origins:multiple",
+	"name": "Sheared",
+	"description": "You've been Sheared! Oh Woe is you. At least you feel Lighter, and fire's not as much of an issue.",
+	"unburdened_swim": {
+        "type": "origins:modify_swim_speed",
+        "modifier": {
+            "operation": "addition",
+            "value": 0.01
+        }
+    },
+	"unburdened_run": {
+        "type": "origins:attribute",
+        "modifier": {
+			"name": "Movement speed increase",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": 0.02,
+			"operation": "addition"
+		}
+    },
+	"baah": {
+		"type": "origins:self_action_when_hit",
+		"entity_action": {
+			"type": "origins:play_sound",
+			"sound": "minecraft:entity.sheep.hurt",
+			"volume": 1
+		},
+		"cooldown": "1"
+	}
+}

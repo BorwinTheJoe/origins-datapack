@@ -1,0 +1,75 @@
+{
+    "type": "origins:action_on_item_use",
+    "name": "Doot!",
+    "description": "With how often you break your horns, you've learnt to make use of them!\nWhen you play a horn, in a radius of 8 blocks around you:\n• You give Regeneration to friends,\n• You give slowness to enemies",
+    "trigger": "start",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:goat_horn"
+        }
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+		    {
+				"type": "origins:apply_effect",
+				"effect": {
+					"effect": "minecraft:regeneration",
+					"duration": 400,
+					"amplifier": 1,
+					"is_ambient": true,
+					"show_particles": true
+				}
+            },
+            {
+                "type": "origins:area_of_effect",
+                "radius": 8,
+                "bientity_action": {
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:apply_effect",
+						"effect": {
+							"effect": "minecraft:regeneration",
+							"duration": 400,
+							"amplifier": 1,
+							"is_ambient": true,
+							"show_particles": true
+						}
+					}
+				},
+				"bientity_condition": {
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_tag",
+						"tag": "goat:hostile",
+						"inverted": true
+					}
+				}
+            },
+			{
+                "type": "origins:area_of_effect",
+                "radius": 8,
+                "bientity_action": {
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:apply_effect",
+						"effect": {
+							"effect": "minecraft:slowness",
+							"duration": 200,
+							"is_ambient": true,
+							"show_particles": true
+						}
+					}
+				},
+				"bientity_condition": {
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_tag",
+						"tag": "goat:hostile"
+					}
+				}
+            }
+        ]
+    }
+}

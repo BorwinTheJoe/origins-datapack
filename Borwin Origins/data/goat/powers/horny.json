@@ -1,0 +1,108 @@
+{
+	"type": "origins:multiple",
+	"name": "Horny",
+	"description": "As a Goat-person, you've got your own Advantages!\n• You're immune to fall damage! No height is a danger to you!\n• Arrows you shoot hurt Harder!\n• Your hits knock your enemies back farther!\n• You can break stone by hand - Thanks to your tough bones!",
+	"fall_immunity": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		}
+	},
+	"projectile_damage": {
+		"type": "origins:modify_projectile_damage",
+		"damage_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:projectile",
+					"projectile": "minecraft:arrow"
+				},
+				{
+					"type": "origins:projectile",
+					"projectile": "minecraft:spectral_arrow"
+				}
+			]
+		},
+		"modifier": {
+			"operation": "addition",
+			"value": 2
+		}
+	},
+	"increase_knockback": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Increase Knockback Dealt",
+			"attribute": "generic.attack_knockback",
+			"value": 1,
+			"operation": "addition"
+		}
+	},
+	"hurt_sound": {
+		"type": "origins:self_action_when_hit",
+		"cooldown": 1,
+		"entity_action": {
+			"type": "origins:play_sound",
+			"sound": "entity.goat.hurt"
+		}
+	},
+	"stone_break": {
+		"type": "origins:modify_harvest",
+		"allow": true,
+		"block_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:mineable/pickaxe"
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:needs_diamond_tool",
+					"inverted": true
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:needs_iron_tool",
+					"inverted": true
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:needs_stone_tool",
+					"inverted": true
+				}
+			]
+		}
+	},
+	"stone_break_speed": {
+		"type": "origins:modify_break_speed",
+		"block_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:mineable/pickaxe"
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:needs_diamond_tool",
+					"inverted": true
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:needs_iron_tool",
+					"inverted": true
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "minecraft:needs_stone_tool",
+					"inverted": true
+				}
+			]
+		},
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.5
+		}
+	}
+}

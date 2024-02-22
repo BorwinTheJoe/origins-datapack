@@ -1,0 +1,17 @@
+{
+    "type": "origins:attribute",
+    "modifiers": [
+        {
+            "attribute": "minecraft:generic.max_health",
+            "value": -2,
+            "operation": "addition"
+        },
+        {
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.015,
+            "operation": "addition"
+        }
+    ],
+    "name": "Delicate",
+    "description": "Your tiny body can't take as much punishment as others. -1 heart."
+}

@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"goat:horny",
+		"goat:charge",
+		"goat:doot"
+	],
+	"icon": "minecraft:goat_spawn_egg",
+	"order": 37,
+	"impact": 2,
+	"name": "Goatian",
+	"description": "The tall mountain cliffs make truly hardy people"
+}

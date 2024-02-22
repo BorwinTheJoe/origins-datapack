@@ -1,0 +1,73 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 10,
+	"entity_action": {
+		"type": "origins:if_else_list",
+		"actions": [
+			{
+				"condition": {
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:health",
+							"comparison": "<=",
+							"compare_to": 20
+						},
+						{
+							"type": "origins:health",
+							"comparison": ">",
+							"compare_to": 10
+						}
+					]
+				},
+				"action": {
+					"type": "origins:apply_effect",
+					"effects": [
+						{
+							"effect": "minecraft:strength",
+							"amplifier": 0,
+							"duration": 60,
+							"show_particles": false,
+							"show_icon": true
+						},
+						{
+							"effect": "minecraft:resistance",
+							"amplifier": 0,
+							"duration": 60,
+							"show_particles": false,
+							"show_icon": true
+						}
+					]
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:health",
+					"comparison": "<=",
+					"compare_to": 10
+				},
+				"action": {
+					"type": "origins:apply_effect",
+					"effects": [
+						{
+							"effect": "minecraft:strength",
+							"amplifier": 1,
+							"duration": 60,
+							"show_particles": false,
+							"show_icon": true
+						},
+						{
+							"effect": "minecraft:resistance",
+							"amplifier": 1,
+							"duration": 60,
+							"show_particles": false,
+							"show_icon": true
+						}
+					]
+				}
+			}
+		]
+	},
+	"name": "Berserker",
+	"description": "In your veins runs the blood of a warrior!\n When you're missing 5 hearts you gain Strength and Resistance 1!\n When you're missing 10, they change into Strength and Resistance 2!"
+}

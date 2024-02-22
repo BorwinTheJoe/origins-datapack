@@ -1,0 +1,413 @@
+{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:if_else",
+        "condition": {
+            "type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:shears"
+						}
+					}
+				},
+				{
+					"type": "origins:power",
+					"power": "sheep:wool"
+				}
+			]
+        },
+        "if_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:food_level",
+                        "comparison": "<",
+                        "compare_to": 3
+                    },
+                    "if_action": {
+                        "type": "origins:damage",
+                        "amount": 4,
+                        "damage_type": "minecraft:starve"
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "effect": "minecraft:saturation",
+                                    "duration": 1,
+                                    "amplifier": -4,
+                                    "show_particles": false,
+                                    "show_icon": false
+                                }
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "minecraft:entity.sheep.ambient"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:white_wool",
+                                    "amount": 3
+                                }
+                            },
+                            "weight": 500
+                        },
+                        {
+                            "element": {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:white_wool",
+                                    "amount": 2
+                                }
+                            },
+                            "weight": 500
+                        },
+                        {
+                            "element": {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:white_wool",
+                                    "amount": 1
+                                }
+                            },
+                            "weight": 500
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:give",
+                                        "stack": {
+                                            "item": "minecraft:hay_block",
+                                            "amount": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Hay?!\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 60
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:give",
+                                        "stack": {
+                                            "item": "minecraft:wheat_seeds",
+                                            "amount": 3
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Ugh. Seeds.\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 80
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:give",
+                                        "stack": {
+                                            "item": "minecraft:cooked_beef",
+                                            "amount": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Messy Eater!\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 40
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:give",
+                                        "stack": {
+                                            "item": "minecraft:cow_spawn_egg",
+                                            "amount": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Playing with milk~?\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 4
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:give",
+                                        "stack": {
+                                            "item": "minecraft:sheep_spawn_egg",
+                                            "amount": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Getting Intimiate~?\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 4
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "summon minecraft:chicken ~ ~ ~ {Motion: [.3, .5, .3]}"
+                                    },
+                                    {
+                                        "type": "origins:play_sound",
+                                        "sound": "minecraft:entity.chicken.hurt",
+                                        "volume": 1.2
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Dirty, Dirty Sheep~!\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "summon minecraft:chicken ~ ~ ~ {Motion: [-.3, .5, .3]}"
+                                    },
+                                    {
+                                        "type": "origins:play_sound",
+                                        "sound": "minecraft:entity.chicken.hurt",
+                                        "volume": 1.2
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Dirty, Dirty Sheep~!\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "summon minecraft:chicken ~ ~ ~ {Motion: [-.3, .5, -.3]}"
+                                    },
+                                    {
+                                        "type": "origins:play_sound",
+                                        "sound": "minecraft:entity.chicken.hurt",
+                                        "volume": 1.2
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Dirty, Dirty Sheep~!\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "summon minecraft:chicken ~ ~ ~ {Motion: [.3, .5, -.3]}"
+                                    },
+                                    {
+                                        "type": "origins:play_sound",
+                                        "sound": "minecraft:entity.chicken.hurt",
+                                        "volume": 1.2
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Dirty, Dirty Sheep~!\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:give",
+                                        "stack": {
+                                            "item": "minecraft:pig_spawn_egg",
+                                            "amount": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Getting Muddy~!\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 4
+                        },
+                        {
+                            "element": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:give",
+                                        "stack": {
+                                            "item": "minecraft:horse_spawn_egg",
+                                            "amount": 1
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @s {\"text\": \"Horsing around, are we~?\", \"color\": \"light_purple\", \"italic\":true}"
+                                    }
+                                ]
+                            },
+                            "weight": 4
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "ignore_unbreaking": false
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.sheep.shear"
+                },
+				{
+					"type": "origins:revoke_power",
+					"power": "sheep:wool",
+					"source": "sheep:sheepian"
+				},
+				{
+					"type": "origins:grant_power",
+					"power": "sheep:sheared",
+					"source": "sheep:sheepian"
+				}
+            ]
+        },
+		"else_action": {	
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:shears"
+					}
+				}
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:food_level",
+							"comparison": "<",
+							"compare_to": 3
+						},
+						"if_action": {
+							"type": "origins:damage",
+							"amount": 4,
+							"damage_type": "minecraft:starve"
+						},
+						"else_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:apply_effect",
+									"effect": {
+										"effect": "minecraft:saturation",
+										"duration": 1,
+										"amplifier": -4,
+										"show_particles": false,
+										"show_icon": false
+									}
+								},
+								{
+									"type": "origins:play_sound",
+									"sound": "minecraft:entity.sheep.ambient"
+								}
+							]
+						}
+					},
+					{
+						"type": "origins:give",
+						"stack": {
+							"item": "minecraft:white_wool",
+							"amount": 1
+							}    
+					},
+					{
+						"type": "origins:equipped_item_action",
+						"equipment_slot": "mainhand",
+						"action": {
+							"type": "origins:damage",
+							"amount": 1,
+							"ignore_unbreaking": false
+						}
+					},
+					{
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.sheep.shear"
+					}
+				]
+			}
+		}
+    },
+    "cooldown": 10,
+    "key": {
+        "key": "key.origins.primary_active"
+    },
+    "name": "Shear",
+    "description": "You can use shears to shear yourself for wool!\nIt makes you a bit hungry though\nAnd sometimes, you find things in your wool.\nAnd you lose your thick wool.\n-But that's not all bad-\nIt removes the wooly effects AND lets you swim and run even faster!"
+}

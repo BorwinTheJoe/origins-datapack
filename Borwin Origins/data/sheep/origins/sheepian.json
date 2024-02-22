@@ -1,0 +1,14 @@
+{
+	"powers": [
+		"sheep:size",
+		"sheep:wool",
+		"sheep:shear",
+		"sheep:plant_nom",
+		"sheep:baah"
+	],
+	"icon": "minecraft:sheep_spawn_egg",
+	"order": 36,
+	"impact": 2,
+	"name": "Sheepian",
+	"description": "Your Ancestors were sheep farmers.\nNow, the farmer and the livestock are one!"
+}

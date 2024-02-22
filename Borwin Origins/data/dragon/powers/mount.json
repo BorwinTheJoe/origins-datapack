@@ -1,0 +1,39 @@
+{
+	"type": "origins:active_self",
+	"name": "Great Mount",
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"entity_action": {
+		"type": "origins:raycast",
+		"distance": 2,
+		"block": false,
+		"entity": true,
+		"shape_type": "collider",
+		"fluid_handling": "none",
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:player"
+					},
+					{
+						"type": "origins:riding",
+						"inverted": true
+					}
+				]
+			}
+		},
+		"bientity_action": {
+			"type": "origins:invert",
+			"action": {
+				"type": "origins:mount"
+			}
+		}
+	},
+	"cooldown": 10,
+	"description": "You can be mounted. Press your Secondary Power button on the Rider!"	
+}

@@ -1,0 +1,4 @@
+{
+	"function": "minecraft:set_nbt",
+	"tag": "{CustomPotionEffects:[{Id:10,Amplifier:2,Duration:150},{Id:23,Amplifier:8,Duration:20}], CustomPotionColor:0x00FFFFFF}"
+}

@@ -1,0 +1,35 @@
+{
+	"type": "origins:multiple",
+	"name": "Winged",
+	"description": "You have Wings, letting you glide, and even FLY!\nFlapping your wings consumes hunger.",
+	"winged": {
+		"type": "origins:elytra_flight",
+		"render_elytra": true
+	},
+	"flappy": {
+		"type": "origins:active_self",
+		"cooldown": 20,
+		"key": {
+			"key": "key.origins.primary_active"
+		},
+		"condition": {
+			"type": "origins:food_level",
+			"comparison": ">",
+			"compare_to": 6
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:add_velocity",
+					"z": 1.2,
+					"space": "local"
+				},
+				{
+					"type": "origins:exhaust",
+					"amount": 10
+				}
+			]
+		}
+	}
+}

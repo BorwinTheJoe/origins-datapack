@@ -1,0 +1,80 @@
+{
+	"type": "origins:multiple",
+	"name": "Yipper",
+	"description": "Your origin comes with more than just Yips!\n• You're only half as tough as a human.\n• You are only one block tall\n• You dig shovel-able blocks faster.\n• You can see in the dark!",
+	"tiny": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "scale set pehkui:height 0.5 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "scale set pehkui:width 0.5 @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "scale persist set true @s"
+				}
+			]
+		},
+		"entity_action_lost": {
+			"type": "origins:execute_command",
+			"permission_level": 4,
+			"command": "scale reset @s"
+		}
+	},
+	"squishy": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Max health increase",
+			"attribute": "minecraft:generic.max_health",
+			"value": -10,
+			"operation": "addition"
+		}
+	},
+	"yip": {
+		"type": "origins:self_action_when_hit",
+		"entity_action": {
+			"type": "origins:play_sound",
+			"sound": "minecraft:entity.parrot.hurt",
+			"pitch": 0.6
+		},
+		"cooldown": 1
+	},
+	"break_speed": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.5
+		},
+		"block_condition": {
+			"type": "origins:in_tag",
+			"tag": "minecraft:mineable/shovel"
+		}
+	},
+	"nightvision": {
+        "type": "origins:night_vision",
+        "strength": 0.2,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water",
+            "inverted": true
+        }
+    },
+	"pickup_range": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "tp @e[type=minecraft:item,distance=..2.85,nbt={PickupDelay:0s}] @s"
+        }
+    }
+}

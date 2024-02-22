@@ -1,0 +1,155 @@
+{
+    "type": "origins:multiple",
+    "food_type_sapling": {
+        "type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:saplings"
+			}
+        },
+        "use_action": "eat",
+        "food_component": {
+            "hunger": 2,
+            "saturation": 4,
+            "meat": false
+        },
+        "return_stack": {
+            "item": "minecraft:stick",
+            "amount": 1
+        }
+    },
+    "food_type_leaves": {
+        "type": "apugli:edible_item",
+        "item_condition": {
+            "type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:leaves"
+			}
+        },
+        "food_component": {
+            "hunger": 1,
+            "saturation": 2,
+            "meat": false
+        },
+        "use_action": "eat",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:regeneration",
+                "duration": 20,
+                "amplifier": 0,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": true
+            }
+        }
+    },
+    "food_type_vines": {
+        "type": "apugli:edible_item",
+        "item_condition": {
+            "type": "origins:ingredient",
+			"ingredient": {
+				"tag": "sheep:vines"
+			}
+        },
+        "food_component": {
+            "hunger": 4,
+            "saturation": 8,
+            "meat": false
+        },
+        "use_action": "eat",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "effect": "minecraft:regeneration",
+                    "duration": 100,
+                    "amplifier": 0,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                },
+                {
+                    "effect": "minecraft:resistance",
+                    "duration": 200,
+                    "amplifier": 0,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                },
+                {
+                    "effect": "minecraft:speed",
+                    "duration": 1200,
+                    "amplifier": 1,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                }
+            ]
+        }
+    },
+    "food_type_flowers": {
+        "type": "apugli:edible_item",
+        "item_condition": {
+            "type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"tag": "minecraft:flowers"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": [
+						{
+							"item": "minecraft:flowering_azalea_leaves"
+						},
+						{
+							"item": "minecraft:cherry_leaves"
+						}
+					],
+					"inverted": true
+				}
+			]
+        },
+        "use_action": "eat",
+        "food_component": {
+            "hunger": 6,
+            "saturation": 12,
+            "meat": false
+        },
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "effect": "minecraft:regeneration",
+                    "duration": 100,
+                    "amplifier": 2,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                },
+                {
+                    "effect": "minecraft:resistance",
+                    "duration": 500,
+                    "amplifier": 0,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                },
+                {
+                    "effect": "minecraft:fire_resistance",
+                    "duration": 100,
+                    "amplifier": 0,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                }
+            ]
+        }
+    },
+    "name": "Plant Nom",
+    "description": "You can eat some plants!\nEat Saplings, vines, leaves and even Flowers for different food values. And effects!"
+}

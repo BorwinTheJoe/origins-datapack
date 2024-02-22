@@ -1,0 +1,63 @@
+{
+    "type": "origins:active_self",
+    "name": "DRAGUN!",
+    "description": "Every kobold wants to be a mighty Dragon one day.\nWith the costly diet, they might as well be!\nBy sacrificing some of your Excess shiny meter, you can certainly FEEL like one.\nFor a bit.\nAs a treat.\n\nYou gain Strength, Resistance, Fire Resistance, Haste for 3 minutes on use. For 3 hearts worth of your Shiny Bar.",
+    "cooldown": 20,
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "kobold:shiny_shiny_resource",
+			"comparison": ">=",
+			"compare_to": 243
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "kobold:shiny_shiny_resource",
+					"operation": "add",
+					"change": -405
+				},
+				{
+					"type": "origins:apply_effect",
+					"effects": [
+						{
+							"effect": "strength",
+							"duration": 3600,
+							"amplifier": 2,
+							"is_ambient": true
+						},
+						{
+							"effect": "haste",
+							"duration": 3600,
+							"amplifier": 4,
+							"is_ambient": true
+						},
+						{
+							"effect": "resistance",
+							"duration": 3600,
+							"amplifier": 1,
+							"is_ambient": true
+						},
+						{
+							"effect": "fire_resistance",
+							"duration": 3600,
+							"is_ambient": true
+						},
+						{
+							"effect": "regeneration",
+							"duration": 3600,
+							"amplifier": 2,
+							"is_ambient": true
+						}
+					]
+				}
+			]
+		}
+    }
+}

@@ -1,0 +1,80 @@
+{
+	"type": "origins:multiple",
+	"name": "Paranoia",
+	"description": "You are convinced everyone is out to get you! Especially in the dim darks!\n\nYou mine faster the darker it is to get away from the bads!",
+	"paranoia_1": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.2
+		},
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:light_level",
+						"comparison": "<=",
+						"compare_to": 11
+					},
+					{
+						"type": "origins:light_level",
+						"comparison": ">=",
+						"compare_to": 7
+					}
+				]
+			}
+		}
+	},
+	"paranoia_2": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.4
+		},
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:light_level",
+						"comparison": "<=",
+						"compare_to": 6
+					},
+					{
+						"type": "origins:light_level",
+						"comparison": ">=",
+						"compare_to": 2
+					}
+				]
+			}
+		}
+	},
+	"paranoia_3": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 0.6
+		},
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:light_level",
+						"comparison": "<=",
+						"compare_to": 1
+					},
+					{
+						"type": "origins:light_level",
+						"comparison": ">=",
+						"compare_to": 0
+					}
+				]
+			}
+		}
+	}
+}

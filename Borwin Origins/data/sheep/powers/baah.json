@@ -1,0 +1,75 @@
+{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:area_of_effect",
+                "radius": 4,
+                "bientity_action": {
+                    "type": "origins:target_action",
+					"action": {
+						"type": "origins:apply_effect",
+						"effect": {
+							"effect": "minecraft:instant_health",
+							"duration": 1,
+							"is_ambient": false,
+							"show_particles": false,
+							"show_icon": false,
+							"amplifier": 1
+						}
+					}
+                },
+                "bientity_condition": {
+                    "type": "origins:can_see"
+                }
+            },
+            {
+                "type": "origins:area_of_effect",
+                "radius": 4,
+                "bientity_action": {
+                    "type": "origins:add_velocity",
+                    "y": 0.5,
+                    "z": 0.3
+                },
+                "bientity_condition": {
+                    "type": "origins:can_see"
+                }
+            },
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.sheep.ambient",
+				"volume": 1,
+				"pitch": 1.2
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.generic.extinguish_fire",
+				"volume": 0.5,
+				"pitch": 1.5
+			},
+			{
+				"type": "origins:spawn_particles",
+				"particle": "minecraft:cloud",
+				"count": 200,
+				"speed": 0.2,
+				"spread": {
+					"x": 6,
+					"y": 0.2,
+					"z": 6
+				},
+				"offset_y": 0
+			
+			}
+        ]
+    },
+    "cooldown": 1200,
+    "hud_render": {
+        "should_render": true
+    },
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "name": "Mighty Baah!",
+    "description": "You can Bleat with great (and cute) Fervor!\nThis causes everyone within range to get healed, and slightly pushed away."
+}

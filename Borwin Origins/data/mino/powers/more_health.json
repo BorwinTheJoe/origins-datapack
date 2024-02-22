@@ -1,0 +1,87 @@
+{
+    "type": "origins:multiple",
+	"health_and_speed": {
+		"type": "origins:attribute",
+		"modifiers": [
+			{
+				"name": "Max health increase",
+				"attribute": "minecraft:generic.max_health",
+				"value": 10,
+				"operation": "addition"
+			},
+			{
+				"name": "Speed Increase",
+				"attribute": "minecraft:generic.movement_speed",
+				"value": 0.03,
+				"operation": "addition"
+			},
+			{
+				"name": "Armor Increase",
+				"attribute": "minecraft:generic.armor",
+				"value": 2,
+				"operation": "addition"
+			}
+		]
+	},
+	"faster_axing": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_speed",
+			"value": 2,
+			"operation": "multiply_total"
+		},
+		"tick_rate": 1,
+		"condition": {
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"tag": "minecraft:axes"
+				}
+			}
+		}
+	},
+	"sprint_speed": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"name": "Sprint Speed Increase",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": 0.04,
+			"operation": "addition"
+		},
+		"tick_rate": 1,
+		"condition": {
+			"type": "origins:sprinting"
+		}
+	}, 
+	"horse_ban": {
+		"type": "origins:prevent_entity_use",
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:horse"
+					},
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:donkey"
+					}
+				]
+			}
+		}
+	},
+	"slower_hunger": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"name": "Reduced exhaustion",
+			"operation": "multiply_base",
+			"value": -0.2
+		}
+	},
+	"name": "Robust Body",
+	"description": "With your Larger build come:\n• Extra 5 Hearts of health\n• 2 points of armor\n• Increased movement speed\nBut you're unable to mount horses. They are too small!\n• Increased Attack speed with Axes. Your Favorite!\n• Reduced Exhaustion. You gain hunger 20% slower!"
+}
